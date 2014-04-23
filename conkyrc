@@ -1,0 +1,58 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+update_interval 2
+total_run_times 0
+short_units yes
+cpu_avg_samples 4 
+override_utf8_locale no
+use_xft yes
+double_buffer no
+
+TEXT
+# JSON for i3bar
+[
+	{
+		"full_text": "     ${cpu}% [${cpu cpu1}.${cpu cpu2}]  ",
+		"color":	"\#0089FA",
+		"name":		"CPU"
+	},
+
+	{
+		"full_text":	"    ${acpitemp}°F  ",
+		"color" :	"\#FF002B",
+		"name":		"TEMP"
+#		"icon":		"/home/fraser/.i3/icons/cpu-temp.xbm"
+	},
+
+ 	{
+		"full_text":	"    ${memperc}% [${mem}/${memmax}]  ",
+		"color":	"\#9AAAAA",
+		"name":		"RAM"
+	},
+
+	{
+		"full_text":	"  ☼ ${exec /home/fraser/.i3/blevel.sh}%  ",
+		"color":	"\#FFA900",
+		"name":		"BRIGHTNESS"
+	},
+
+	{
+		"full_text":	"    ${exec /home/fraser/.i3/batt.sh}  ",
+	#	"full_text":	"  BATT: ${battery_percent}%  ",
+	#	"full_text": 	"  ${battery} ${battery_percent}  ",
+		"color": 	${if_match ${battery_percent}>16}"\#00A753"${else}"\#FF002B"${endif}
+	},
+
+      	{
+      		"full_text":	"   ${time %D}    ${time %l:%M %p}  ",
+          	"color":	"\#FFFFFF"
+      	},
+	{
+		"full_text":	"    ${exec /home/fraser/.i3/username.sh}  ",
+		"color":	"\#EF4EB8",
+		"name":		"USER"
+	}
+],
